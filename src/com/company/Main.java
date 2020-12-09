@@ -16,16 +16,18 @@ public class Main {
         System.out.println(" ");
         System.out.println("Bonjour, Laspit'app vous propose actuellement 2 fonctionnalités:");     //A changer quand on aura les classes
         System.out.println(" ");
-        System.out.println("1- Hospify : Un lecteur de musiques.");                                 //pour afficher une liste de fonctionnalités
+        System.out.println("1- Hospify : Un lecteur de musiques");                                 //pour afficher une liste de fonctionnalités
         System.out.println("2- Colossal Save : Un super jeu d'aventure!");
         System.out.println(" ");
         System.out.println(" ");
-        System.out.println("Que désirez vous faire? Veuillez faire votre choix. ");
+        System.out.println("Que désirez vous faire ? Veuillez faire votre choix. ");
         System.out.println("Vous pouvez quittez l'application en tapant la lettre Q ");
 
         entree = entreeUtilisateur();
 
         if(entree.equals("1")) {
+            System.out.println();
+            Hospify.accueil();
         }
 
         ArrayList<ArrayList<String>> musiques = new ArrayList<>();
@@ -54,8 +56,6 @@ public class Main {
         musiques.add(musique2);
         musiques.add(musique3);
         musiques.add(musique4);
-
-        LecteurMusique.lecteurMusique(musiques);
     }
 
 
