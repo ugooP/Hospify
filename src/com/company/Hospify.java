@@ -33,7 +33,7 @@ public class Hospify {
         }
         else if (entree.equals("2")) {
             Playlist playlist = new Playlist();
-            Playlist.creerPlaylist();
+            playlist.creerPlaylist();
         }
         else if (entree.equals("3")) {
         }
