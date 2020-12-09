@@ -1,5 +1,9 @@
 package com.company;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -10,7 +14,7 @@ public class Hospify {
     private static String entree;
 
 
-    public void affichageMenu() {
+    public void affichageMenu() throws FileNotFoundException {
 
         System.out.println(" ");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~ Hospify ~~~~~~~~~~~~~~~~~~~~~ ");
@@ -26,47 +30,17 @@ public class Hospify {
         entree = entreeUtilisateur();
 
         if (entree.equals("1")) {
-            afficherPlaylist();
         }
         else if (entree.equals("2")) {
-            creerPlaylist();
+            Playlist playlist = new Playlist();
+            Playlist.creerPlaylist();
         }
         else if (entree.equals("3")) {
-            rechercherChanson();
         }
         else if (entree.equals("4")) {
             Main.mainMenu();
         }
     }
-
-    private void afficherPlaylist() {
-    }
-
-    private void rechercherChanson() {
-    }
-
-    private static void creerPlaylist() {
-        System.out.print("Entrer le nom de la playlist : ");
-        Scanner scan = new Scanner(System.in);
-        String nomPlaylist = scan.nextLine();
-
-        ArrayList<ArrayList<HashMap<String, String>>> listePlaylist = new ArrayList<>();
-        ArrayList<HashMap<String, String>> playlist1 = new ArrayList<>();
-        HashMap<String, String> musique1 = new HashMap<String, String>();
-
-
-        musique1.put("titre", "titre chanson 1");
-        musique1.put("auteur", "auteur chanson 1");
-        musique1.put("duree", "1:45");
-
-        // musique2.put(...)
-        // ...
-
-        playlist1.add(musique1);
-        listePlaylist.add(playlist1);
-
-    }
-
 
     static String entreeUtilisateur(){
 

@@ -1,5 +1,6 @@
 package com.company;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,13 +10,13 @@ public class Main {
     private static String entree;
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
         mainMenu();
 
     }
 
-    public static void mainMenu() {
+    public static void mainMenu() throws FileNotFoundException {
         System.out.println(" ");
         System.out.println("~~~~~~~~~~~~~ Bienvenue sur Laspit'app ~~~~~~~~~~~~~ ");
         System.out.println(" ");
