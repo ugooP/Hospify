@@ -23,6 +23,22 @@ public class Hospify {
         System.out.println("Vous pouvez quittez l'application en tapant la lettre Q ");
 
         entree = entreeUtilisateur();
+        switch (entree){
+            case "1":
+                System.out.println("Aléatoire"); //Fonction lecture aléatoire
+                break;
+
+            case "2":
+                System.out.println("Playlists"); //Fonction Gestion playlists
+                break;
+
+            case "3":
+                Main.mainMenu();
+                break;
+
+            default:
+                break;
+        }
     }
 
     static String entreeUtilisateur(){
