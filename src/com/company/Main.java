@@ -35,6 +35,10 @@ public class Main {
             Hospify hospify = new Hospify();
             hospify.affichageMenu();
         }
+        else if (entree.equals("2")) {
+            System.out.println();
+            ColossalCase.afficherMenu();
+        }
     }
 
 
