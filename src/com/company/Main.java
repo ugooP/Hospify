@@ -44,7 +44,7 @@ public class Main {
         LecteurMusique.lecteurMusique(musiques);
     }
 
-    private static void mainMenu() {
+    public static void mainMenu() {
         System.out.println(" ");
         System.out.println("~~~~~~~~~~~~~ Bienvenue sur Laspit'app ~~~~~~~~~~~~~ ");
         System.out.println(" ");
