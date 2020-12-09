@@ -14,6 +14,7 @@ public class Chansons {
         while (file.hasNextLine()) {
             String ligne = file.nextLine();
             System.out.println(indexChanson + ". " + ligne);
+            indexChanson++;
         }
         file.close();
     }

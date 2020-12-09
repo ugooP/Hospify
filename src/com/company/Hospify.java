@@ -14,7 +14,7 @@ public class Hospify {
     private static String entree;
 
 
-    public void affichageMenu() throws FileNotFoundException {
+    public static void affichageMenu() throws FileNotFoundException {
 
         System.out.println(" ");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~ Hospify ~~~~~~~~~~~~~~~~~~~~~ ");
