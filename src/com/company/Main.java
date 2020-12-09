@@ -11,24 +11,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println(" ");
-        System.out.println("~~~~~~~~~~~~~ Bienvenue sur Laspit'app ~~~~~~~~~~~~~ ");
-        System.out.println(" ");
-        System.out.println("Bonjour, Laspit'app vous propose actuellement 2 fonctionnalités:");     //A changer quand on aura les classes
-        System.out.println(" ");
-        System.out.println("1- Hospify : Un lecteur de musiques");                                 //pour afficher une liste de fonctionnalités
-        System.out.println("2- Colossal Save : Un super jeu d'aventure!");
-        System.out.println(" ");
-        System.out.println(" ");
-        System.out.println("Que désirez vous faire ? Veuillez faire votre choix. ");
-        System.out.println("Vous pouvez quittez l'application en tapant la lettre Q ");
+        mainMenu();
 
-        entree = entreeUtilisateur();
-
-        if(entree.equals("1")) {
-            System.out.println();
-            Hospify.accueil();
-        }
 
         ArrayList<ArrayList<String>> musiques = new ArrayList<>();
         ArrayList<String> musique1 = new ArrayList<String>();
@@ -56,8 +40,31 @@ public class Main {
         musiques.add(musique2);
         musiques.add(musique3);
         musiques.add(musique4);
+
+        LecteurMusique.lecteurMusique(musiques);
     }
 
+    private static void mainMenu() {
+        System.out.println(" ");
+        System.out.println("~~~~~~~~~~~~~ Bienvenue sur Laspit'app ~~~~~~~~~~~~~ ");
+        System.out.println(" ");
+        System.out.println("Bonjour, Laspit'app vous propose actuellement 2 fonctionnalités:");     //A changer quand on aura les classes
+        System.out.println(" ");
+        System.out.println("1- Hospify : Un lecteur de musiques.");                                 //pour afficher une liste de fonctionnalités
+        System.out.println("2- Colossal Save : Un super jeu d'aventure!");
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println("Que désirez vous faire? Veuillez faire votre choix. ");
+        System.out.println("Vous pouvez quittez l'application en tapant la lettre Q ");
+
+        entree = entreeUtilisateur();
+
+        if(entree.equals("1")) {
+            Hospify hospify = new Hospify();
+
+            hospify.affichageMenu();
+        }
+    }
 
 
     static String entreeUtilisateur(){
