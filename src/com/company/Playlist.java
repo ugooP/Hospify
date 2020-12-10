@@ -1,17 +1,24 @@
 package com.company;
 
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Playlist {
 
+    private static int playlistCount = 0;
 
     public static void creerPlaylist() throws FileNotFoundException {
-        Chansons chansons = new Chansons();
+
+        ArrayList<String> playlist = new ArrayList<>();
+
         System.out.println(" ");
         System.out.println("Voici la liste des chansons disponibles:");
         System.out.println(" ");
-        Chansons.afficherChanson();
+        String[] chansons = new String[20];
+        Chansons.tabChansons(chansons);
+        Chansons.afficherChanson(chansons);
         System.out.println();
         System.out.println("Taper V pour valider la playlist");
         System.out.println("Taper M pour revenir au menu");
@@ -23,6 +30,8 @@ public class Playlist {
 
             if (entreeUtilisateur.toLowerCase().equals("v")) {
                 System.out.println("Playlist créée !");
+                //playlistCount++;
+                //FileWriter("playlist"+playlistCount)
                 Hospify.affichageMenu();
             }
             else if (entreeUtilisateur.toLowerCase().equals("m")) {
@@ -31,7 +40,8 @@ public class Playlist {
             else {
                 int musiqueIndex = Integer.parseInt(entreeUtilisateur);
 
-                // if ...
+                playlist.add(chansons[musiqueIndex]);
+                System.out.println(playlist);
 
             }
 
