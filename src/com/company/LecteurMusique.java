@@ -49,7 +49,7 @@ public class LecteurMusique {
 
     }
 
-    private static void jouerMusique(String[] playlist, int numMusique) {
+    public static void jouerMusique(String[] playlist, int numMusique) {
 
         System.out.println();
         System.out.println("Actuellement en train de jouer :");

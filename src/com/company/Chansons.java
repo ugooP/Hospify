@@ -36,7 +36,54 @@ public class Chansons {
 
     }
 
-    public static void lireChanson() {
+    public static void contenuChansons() throws FileNotFoundException {
+        tabChansons(Playlist.chansons);
+        afficherChanson(Playlist.chansons);
+    }
+    public static void rechercheChanson() throws FileNotFoundException {
+        contenuChansons();
+        System.out.println(" ");
+        System.out.println("Souhaitez vous jouer l'une d'entre elle?");
+        System.out.println("Oui / Non");
+        Scanner scanner = new Scanner(System.in);
+        String scan = scanner.nextLine();
 
+        if(scan.toLowerCase().equals("non")){
+            Hospify.affichageMenu();
+        }
+        else if(scan.toLowerCase().equals("oui")) {
+            System.out.println("Quelle chanson jouer? (son numéro dans la liste)");
+            scan = scanner.nextLine();
+
+            while (!scan.matches("^[0-7].*")) {
+                System.out.println("Commande invalide, veuillez selectionner un chiffre dans la liste.");
+                scan = scanner.nextLine();
+            }
+                int choix = Integer.parseInt(scan);
+                LecteurMusique.jouerMusique(Playlist.chansons, choix);
+                retourChanson();
+        }
+        else{
+            System.out.println("Commande invalide");
+            rechercheChanson();
+        }
+    }
+
+    public static void retourChanson() throws FileNotFoundException {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("m -> retourner au menu");
+        System.out.println("l -> retourner à la liste des chanson");
+
+        while (true) {
+            String scan = scanner.nextLine();
+            if (scan.toLowerCase().equals("m")) {
+                Hospify.affichageMenu();
+            } else if (scan.toLowerCase().equals("l")) {
+                rechercheChanson();
+            } else {
+                System.out.println("Commande invalide");
+                retourChanson();
+            }
+        }
     }
 }

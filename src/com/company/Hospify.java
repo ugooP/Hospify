@@ -41,7 +41,10 @@ public class Hospify {
             Playlist.supprimerPlaylist();
         }
         else if (entree.equals("4")) {
-
+            System.out.println(" ");
+            System.out.println("Voici la liste des musiques disponible sur notre plateforme:");
+            System.out.println(" ");
+            Chansons.rechercheChanson();
         }
         else if (entree.equals("5")) {
             Main.mainMenu();
