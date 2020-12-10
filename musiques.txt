@@ -1,0 +1,8 @@
+musique1 - artiste - durée
+musique2 - artiste - durée
+musique3 - artiste - durée
+musique4 - artiste - durée
+musique5 - artiste - durée
+musique6 - artiste - durée
+musique7 - artiste - durée
+musique8 - artiste - durée
