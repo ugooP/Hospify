@@ -14,7 +14,7 @@ public class Hospify {
     private static String entree;
 
 
-    public void affichageMenu() throws FileNotFoundException {
+    public static void affichageMenu() throws FileNotFoundException {
 
         System.out.println(" ");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~ Hospify ~~~~~~~~~~~~~~~~~~~~~ ");
@@ -33,7 +33,7 @@ public class Hospify {
         }
         else if (entree.equals("2")) {
             Playlist playlist = new Playlist();
-            Playlist.creerPlaylist();
+            playlist.creerPlaylist();
         }
         else if (entree.equals("3")) {
         }
