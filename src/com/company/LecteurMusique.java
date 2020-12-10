@@ -1,12 +1,13 @@
 package com.company;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class LecteurMusique {
 
-    public static void lecteurMusique(String[] playlist) {
+    public static void lecteurMusique(String[] playlist) throws FileNotFoundException {
 
         int numMusique = 0;
         jouerMusique(playlist, numMusique);
@@ -41,10 +42,12 @@ public class LecteurMusique {
                 System.out.println("Tu écoutes la première chanson de la playlist");
                 System.out.println();
             }
+            else if (entreeUtilisateur.equals("m")) {
+                Hospify.affichageMenu();
+            }
             else {
                 System.out.println("Commande invalide");
             }
-            System.out.println("num musique = " + numMusique);
         }
 
     }
