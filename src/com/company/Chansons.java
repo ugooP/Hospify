@@ -1,7 +1,6 @@
 package com.company;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
@@ -9,14 +8,21 @@ import java.util.Scanner;
 public class Chansons {
 
     public static void afficherChanson() throws FileNotFoundException {
-        Scanner scanner = new Scanner(new BufferedReader(new FileReader("test.txt")));
+        Scanner scanner = null;
 
+        try {
+            scanner = new Scanner(new BufferedReader(new FileReader("test.txt")));
 
-        while (scanner.hasNextLine()) {
-            String data = scanner.nextLine();
-            System.out.println(data);
+            while (scanner.hasNextLine()) {
+                String musique = scanner.nextLine();
+                System.out.println(musique);
+            }
+            scanner.close();
+        }catch (FileNotFoundException e){
+            System.out.println("Fichier introuvable");
+            e.printStackTrace();
+            System.exit(0);
         }
-        scanner.close();
     }
     public static void nouvelleChanson(String titre, String auteur, String duree) {
 

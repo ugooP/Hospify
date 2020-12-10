@@ -8,6 +8,9 @@ public class Playlist {
 
     public static void creerPlaylist() throws FileNotFoundException {
         Chansons chansons = new Chansons();
+        System.out.println(" ");
+        System.out.println("Voici la liste des chansons disponibles:");
+        System.out.println(" ");
         Chansons.afficherChanson();
 
         while (true) {
