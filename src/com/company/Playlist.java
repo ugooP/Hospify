@@ -40,15 +40,23 @@ public class Playlist {
             else {
                 int musiqueIndex = Integer.parseInt(entreeUtilisateur);
 
-                playlist.add(chansons[musiqueIndex]);
-                System.out.println(playlist);
+                if (musiqueIndex < 0 || musiqueIndex >= chansons.length) {
+                    System.out.println("Numéro invalide");
+                } else {
+                    playlist.add(chansons[musiqueIndex]);
+                }
 
             }
 
         }
     }
 
-    public static void afficherPlaylist() {
+    public static void jouerPlaylist() {
+        afficherListePlaylist();
+    }
 
+    private static void afficherListePlaylist() {
+        System.out.println();
+        System.out.println("Liste des playlist : ");
     }
 }

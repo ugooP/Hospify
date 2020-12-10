@@ -8,8 +8,6 @@ import java.util.Scanner;
 public class Chansons {
 
     public static void afficherChanson(String[] chansons)  {
-
-
         for (int i = 0; i < chansons.length; i++) {
             if (chansons[i] != null) {
                 System.out.println(i + ". " + chansons[i]);
