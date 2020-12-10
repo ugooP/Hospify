@@ -30,6 +30,7 @@ public class Hospify {
         entree = entreeUtilisateur();
 
         if (entree.equals("1")) {
+            Playlist.jouerPlaylist();
         }
         else if (entree.equals("2")) {
             Playlist playlist = new Playlist();
