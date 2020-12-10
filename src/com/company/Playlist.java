@@ -2,7 +2,9 @@ package com.company;
 
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Playlist {
@@ -29,9 +31,15 @@ public class Playlist {
             String entreeUtilisateur = scan.nextLine();
 
             if (entreeUtilisateur.toLowerCase().equals("v")) {
-                System.out.println("Playlist créée !");
-                //playlistCount++;
-                //FileWriter("playlist"+playlistCount)
+                playlistCount++;
+                try {
+                    FileWriter playlistWriter = new FileWriter("playlist"+playlistCount+".txt");
+                    playlistWriter.write(Arrays.toString(chansons));
+                    playlistWriter.close();
+                    System.out.println("Playlist créée !");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 Hospify.affichageMenu();
             }
             else if (entreeUtilisateur.toLowerCase().equals("m")) {
