@@ -5,34 +5,37 @@ import java.util.Scanner;
 
 public class LecteurMusique {
 
-    public static void lecteurMusique(ArrayList<ArrayList<String>> musiques) {
+    public static void lecteurMusique(int indexPlaylist) {
 
-        int numMusique = 1;
+        ArrayList list = Playlist.playlist;
+        int numMusique = 0;
 
-        jouerMusique(musiques, numMusique);
+        jouerMusique(list, numMusique);
 
-        System.out.println("s -> musique suivante");
-        System.out.println("p -> musique précédente");
 
         while (true) {
+            System.out.println("s -> musique suivante");
+            System.out.println("p -> musique précédente");
+
             Scanner scan = new Scanner(System.in);
             String entreeUtilisateur = scan.nextLine();
 
+            System.out.println(list.size());
             // Skip avant
-            if (entreeUtilisateur.equals("s") && numMusique + 1 <= musiques.size()) {
+            if (entreeUtilisateur.equals("s") && numMusique + 1 < list.size()) {
                 numMusique++;
-                jouerMusique(musiques, numMusique);
+                jouerMusique(list, numMusique);
             }
-            // Cas où l'utilisateur écoute la première chanson de la playlist
-            else if (entreeUtilisateur.equals("s") && numMusique + 1 > musiques.size()) {
+            // Cas où l'utilisateur écoute la dernière chanson de la playlist
+            else if (entreeUtilisateur.equals("s") && numMusique + 1 > list.size()) {
                 System.out.println("Tu écoutes la dernière chanson de la playlist");
             }
             // Skip arrière
             else if (entreeUtilisateur.equals("p") && numMusique - 1 > 0) {
                 numMusique--;
-                jouerMusique(musiques, numMusique);
+                jouerMusique(list, numMusique);
             }
-            // Cas où l'utilisateur écoute la dernière chanson de la playlist
+            // Cas où l'utilisateur écoute la première chanson de la playlist
             else if (entreeUtilisateur.equals("p") && numMusique - 1 == 0 ) {
                 System.out.println("Tu écoutes la première chanson de la playlist");
             }
@@ -43,11 +46,11 @@ public class LecteurMusique {
 
     }
 
-    private static void jouerMusique(ArrayList<ArrayList<String>> musiques, int numMusique) {
+    private static void jouerMusique(ArrayList playlist, int numMusique) {
 
         System.out.println();
         System.out.println("Actuellement en train de jouer :");
-        System.out.println(musiques.get(numMusique - 1).get(0) + " - " + musiques.get(numMusique - 1).get(1) + " (" + musiques.get(numMusique - 1).get(2) + ")");
+        System.out.println(playlist.get(numMusique));
         System.out.println();
 
     }
