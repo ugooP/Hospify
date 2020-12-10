@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Playlist {
 
-    public static String[] chansons = new String[20];
+    public static String[] chansons = new String[200];
     private static int playlistCount = 0;
     public static ArrayList<String[]> playlist = new ArrayList<>();
 

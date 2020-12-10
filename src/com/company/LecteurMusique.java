@@ -54,11 +54,14 @@ public class LecteurMusique {
 
     public static void jouerMusique(String[] playlist, int numMusique) {
 
-        System.out.println();
-        System.out.println("Actuellement en train de jouer :");
-        System.out.println(playlist[numMusique]);
-        System.out.println();
-
+        if (playlist[numMusique] != null) {
+            System.out.println();
+            System.out.println("Actuellement en train de jouer :");
+            System.out.println(playlist[numMusique]);
+            System.out.println();
+        }else {
+            System.out.println("La musique demandée n'existe pas");
+        }
     }
 
 }

@@ -55,7 +55,7 @@ public class Chansons {
             System.out.println("Quelle chanson jouer? (son numéro dans la liste)");
             scan = scanner.nextLine();
 
-            while (!scan.matches("^[0-7].*")) {
+            while (!scan.matches("^[0-9].*")) {
                 System.out.println("Commande invalide, veuillez selectionner un chiffre dans la liste.");
                 scan = scanner.nextLine();
             }
@@ -72,7 +72,7 @@ public class Chansons {
     public static void retourChanson() throws FileNotFoundException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("m -> retourner au menu");
-        System.out.println("l -> retourner à la liste des chanson");
+        System.out.println("l -> retourner à la liste des chansons");
 
         while (true) {
             String scan = scanner.nextLine();
