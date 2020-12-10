@@ -21,8 +21,9 @@ public class Hospify {
         System.out.println(" ");
         System.out.println("1- Jouer une playlist");
         System.out.println("2- Créer une playlist");
-        System.out.println("3- Rechercher une chanson");
-        System.out.println("4- Retour au menu principal");
+        System.out.println("3- Supprimer une playlist");
+        System.out.println("4- Rechercher une chanson");
+        System.out.println("5- Retour au menu principal");
         System.out.println(" ");
         System.out.println("Que désirez vous faire ? Veuillez faire votre choix");
         System.out.println("Vous pouvez quittez l'application en tapant la lettre Q ");
@@ -33,12 +34,16 @@ public class Hospify {
             Playlist.jouerPlaylist();
         }
         else if (entree.equals("2")) {
-            Playlist playlist = new Playlist();
-            playlist.creerPlaylist();
+            Playlist newPlaylist = new Playlist();
+            newPlaylist.creerPlaylist();
         }
         else if (entree.equals("3")) {
+            Playlist.supprimerPlaylist();
         }
         else if (entree.equals("4")) {
+
+        }
+        else if (entree.equals("5")) {
             Main.mainMenu();
         }
     }

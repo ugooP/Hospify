@@ -1,16 +1,15 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class LecteurMusique {
 
-    public static void lecteurMusique(int indexPlaylist) {
+    public static void lecteurMusique(String[] playlist) {
 
-        ArrayList list = Playlist.playlist;
         int numMusique = 0;
-
-        jouerMusique(list, numMusique);
+        jouerMusique(playlist, numMusique);
 
 
         while (true) {
@@ -20,40 +19,43 @@ public class LecteurMusique {
             Scanner scan = new Scanner(System.in);
             String entreeUtilisateur = scan.nextLine();
 
-            System.out.println(list.size());
             // Skip avant
-            if (entreeUtilisateur.equals("s") && numMusique + 1 < list.size()) {
+            if (entreeUtilisateur.equals("s") && playlist[numMusique+1] != null) {
                 numMusique++;
-                jouerMusique(list, numMusique);
+                jouerMusique(playlist, numMusique);
             }
             // Cas où l'utilisateur écoute la dernière chanson de la playlist
-            else if (entreeUtilisateur.equals("s") && numMusique + 1 > list.size()) {
+            else if (entreeUtilisateur.equals("s") && playlist[numMusique+1] == null) {
+                System.out.println();
                 System.out.println("Tu écoutes la dernière chanson de la playlist");
+                System.out.println();
             }
             // Skip arrière
-            else if (entreeUtilisateur.equals("p") && numMusique - 1 > 0) {
+            else if (entreeUtilisateur.equals("p") && numMusique - 1 >= 0) {
                 numMusique--;
-                jouerMusique(list, numMusique);
+                jouerMusique(playlist, numMusique);
             }
             // Cas où l'utilisateur écoute la première chanson de la playlist
-            else if (entreeUtilisateur.equals("p") && numMusique - 1 == 0 ) {
+            else if (entreeUtilisateur.equals("p") && numMusique - 1 < 0 ) {
+                System.out.println();
                 System.out.println("Tu écoutes la première chanson de la playlist");
+                System.out.println();
             }
             else {
                 System.out.println("Commande invalide");
             }
+            System.out.println("num musique = " + numMusique);
         }
 
     }
 
-    private static void jouerMusique(ArrayList playlist, int numMusique) {
+    private static void jouerMusique(String[] playlist, int numMusique) {
 
         System.out.println();
         System.out.println("Actuellement en train de jouer :");
-        System.out.println(playlist.get(numMusique));
+        System.out.println(playlist[numMusique]);
         System.out.println();
 
     }
-
 
 }
