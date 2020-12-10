@@ -1,14 +1,13 @@
 package com.company;
 
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Playlist {
 
+    private static String[] chansons = new String[20];
     private static int playlistCount = 0;
 
     public static void creerPlaylist() throws FileNotFoundException {
@@ -18,7 +17,6 @@ public class Playlist {
         System.out.println(" ");
         System.out.println("Voici la liste des chansons disponibles:");
         System.out.println(" ");
-        String[] chansons = new String[20];
         Chansons.tabChansons(chansons);
         Chansons.afficherChanson(chansons);
         System.out.println();
@@ -31,16 +29,16 @@ public class Playlist {
             String entreeUtilisateur = scan.nextLine();
 
             if (entreeUtilisateur.toLowerCase().equals("v")) {
-                playlistCount++;
-                try {
-                    FileWriter playlistWriter = new FileWriter("playlist"+playlistCount+".txt");
-                    playlistWriter.write(Arrays.toString(chansons));
-                    playlistWriter.close();
-                    System.out.println("Playlist créée !");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                Hospify.affichageMenu();
+                    try {
+                        playlistCount++;
+                        FileWriter playlistWriter = new FileWriter("playlist" + playlistCount+ ".txt");
+                        playlistWriter.write(String.valueOf(playlist));
+                        playlistWriter.close();
+                        System.out.println("Playlist créée !");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    Hospify.affichageMenu();
             }
             else if (entreeUtilisateur.toLowerCase().equals("m")) {
                 Hospify.affichageMenu();
@@ -52,6 +50,7 @@ public class Playlist {
                     System.out.println("Numéro invalide");
                 } else {
                     playlist.add(chansons[musiqueIndex]);
+                    System.out.println(playlist);
                 }
 
             }
@@ -61,10 +60,22 @@ public class Playlist {
 
     public static void jouerPlaylist() {
         afficherListePlaylist();
+
     }
 
     private static void afficherListePlaylist() {
         System.out.println();
         System.out.println("Liste des playlist : ");
+
+        for (int i = 1; i < chansons.length-1 ; i++) {
+
+            Scanner scan = null;
+            try {
+                scan = new Scanner(new BufferedReader(new FileReader("playlist"+i+".txt")));
+            } catch (FileNotFoundException e) {
+                break;
+            }
+            System.out.println(scan.nextLine());
+        }
     }
 }
