@@ -1,8 +1,6 @@
 package com.company;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -20,6 +18,18 @@ public class Musiques {
 
     public Musiques() {
 
+    }
+
+    public static void ajouterNouvelleMusique(Musiques musique) throws FileNotFoundException {
+
+        try {
+            File file = new File("musiques2.txt");
+            FileWriter fr = new FileWriter(file, true);
+            fr.write(musique.getTitre() + "/" + musique.getArtiste() + "/" + musique.getDuree() + "/");
+            fr.close();
+        } catch (IOException e) {
+            System.out.println("Un problème est survenu");
+        }
     }
 
     public void setArtiste(String artiste) {

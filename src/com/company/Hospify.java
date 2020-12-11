@@ -17,14 +17,15 @@ public class Hospify {
 
         System.out.println();
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~ Hospify ~~~~~~~~~~~~~~~~~~~~~ ");
-        System.out.println(" ");
+        System.out.println();
         System.out.println("1- Jouer une playlist");
         System.out.println("2- Créer une playlist");
         System.out.println("3- Supprimer une playlist");
         System.out.println("4- Rechercher une chanson");
-        System.out.println("5- Supprimer une chanson");
-        System.out.println("6- Retour au menu principal");
-        System.out.println(" ");
+        System.out.println("5- Ajouter une chanson");
+        System.out.println("6- Supprimer une chanson");
+        System.out.println("7- Retour au menu principal");
+        System.out.println();
         System.out.println("Que désirez vous faire ? Veuillez faire votre choix");
         System.out.println("Vous pouvez quittez l'application en tapant la lettre Q ");
 
@@ -42,14 +43,17 @@ public class Hospify {
         }
         else if (entree.equals("4")) {
             System.out.println(" ");
-            System.out.println("Voici la liste des musiques disponible sur notre plateforme:");
+            System.out.println("Voici la liste des musiques disponible sur notre plateforme :");
             System.out.println(" ");
             Chansons.rechercheChanson();
         }
         else if (entree.equals("5")) {
-
+            Chansons.ajouterNouvelleChanson();
         }
         else if (entree.equals("6")) {
+
+        }
+        else if (entree.equals("7")) {
             Main.mainMenu();
         }
     }
@@ -58,7 +62,7 @@ public class Hospify {
 
         entree = scanner.nextLine();
 
-        while (!entree.equals("1") && !entree.equals("2") && !entree.equals("3") && !entree.equals("4") && !entree.toLowerCase().equals("q")){
+        while (!entree.equals("1") && !entree.equals("2") && !entree.equals("3") && !entree.equals("4") && !entree.equals("5") && !entree.equals("6") && !entree.equals("7") && !entree.toLowerCase().equals("q")){
             System.out.println(" ");
             System.out.println("Veuillez faire un choix parmi les fonctionnalités proposées.");
             entreeUtilisateur();
