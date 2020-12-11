@@ -78,34 +78,28 @@ public class Playlist {
         afficherListePlaylist();
         System.out.println();
 
-        if (listePlaylist.size() == 0) {
-            System.out.println("Aucune playlist trouvée...");
-            Hospify.affichageMenu();
-        } else {
-            while (true) {
-                System.out.print("Selectionnez la playlist à jouer : ");
-                Scanner scanner = new Scanner(System.in);
-                String choix = scanner.nextLine();
+        while (true) {
+            System.out.print("Selectionnez la playlist à jouer : ");
+            Scanner scanner = new Scanner(System.in);
+            String choix = scanner.nextLine();
 
-                if (choix.toLowerCase().equals("m")) {
-                    Hospify.affichageMenu();
+            if (choix.toLowerCase().equals("m")) {
+                Hospify.affichageMenu();
+            } else {
+                int playlistIndex = Integer.parseInt(choix);
+
+                if (playlistIndex > listePlaylist.size() || playlistIndex <= 0) {
+                    System.out.println("Commande invalide");
                 } else {
-                    int playlistIndex = Integer.parseInt(choix);
-
-                    if (playlistIndex > listePlaylist.size() || playlistIndex <= 0) {
-                        System.out.println("Commande invalide");
-                    } else {
-                        ArrayList playlistChoisie = listePlaylist.get(playlistIndex - 1);
-                        LecteurMusique.lecturePlaylist(playlistChoisie);
-                    }
+                    ArrayList playlistChoisie = listePlaylist.get(playlistIndex - 1);
+                    LecteurMusique.lecturePlaylist(playlistChoisie);
                 }
             }
         }
     }
 
-    private static void afficherListePlaylist() {
+    private static void afficherListePlaylist() throws FileNotFoundException {
         int index = 0;
-        String[] nouvellePlaylist = new String[chansons.length];
 
         System.out.println();
         System.out.println("Liste des playlist : ");
@@ -115,7 +109,7 @@ public class Playlist {
 
             try {
                 scan = new Scanner(new BufferedReader(new FileReader("playlist" + i + ".txt")));
-                System.out.println("Playlist "+ i);
+                System.out.println("Playlist " + i);
             } catch (FileNotFoundException e) {
                 break;
             }
@@ -126,22 +120,23 @@ public class Playlist {
         afficherListePlaylist();
         System.out.println();
 
-        System.out.print("Numéro de la playlist à supprimer : ");
-        Scanner scanner = new Scanner(System.in);
-        String choix = scanner.nextLine();
-
         while (true) {
+            System.out.print("Numéro de la playlist à supprimer : ");
+            Scanner scanner = new Scanner(System.in);
+            String choix = scanner.nextLine();
+
             if (choix.equals("m")) {
                 Hospify.affichageMenu();
             } else {
-                int indexPlaylist = Integer.parseInt(choix);
+                int indexPlaylist = Integer.parseInt(choix) - 1;
 
-                if (indexPlaylist - 1 < 0 || indexPlaylist > listePlaylist.size()) {
+                if (indexPlaylist < 0 || indexPlaylist > listePlaylist.size()) {
                     System.out.println();
                     System.out.println("Numéro invalide");
                     System.out.println();
                 } else {
                     listePlaylist.remove(indexPlaylist);
+                    indexPlaylist++;
                     System.out.println("La playlist " + indexPlaylist + " a été supprimée");
                     Hospify.affichageMenu();
                     break;
