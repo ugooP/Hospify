@@ -9,7 +9,7 @@ public class LecteurMusique {
 
     public static void lecturePlaylist(ArrayList<Musiques> playlist) throws FileNotFoundException {
 
-        int numMusique = 0;
+        int numMusique = (int) (Math.random() * ((playlist.size()) + 1));
         jouerMusique(playlist, numMusique);
 
 
