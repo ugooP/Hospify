@@ -59,7 +59,7 @@ public class Playlist {
         }
     }
 
-    private static void afficherListeMusiques() {
+    public static void afficherListeMusiques() {
         ArrayList<Musiques> musiques = Hospify.listeMusiques;
         for (int i = 0; i < musiques.size(); i++) {
             System.out.println(i + ". " + musiques.get(i).getTitre() + " - " + musiques.get(i).getArtiste() + " (" + musiques.get(i).getDuree() + ")");
