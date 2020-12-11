@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class ColossalCase {
 
-    public static void afficherMenu() throws FileNotFoundException {
+    public static void afficherMenu() throws Exception {
         System.out.println("~~~~~~~~~~~~ Bienvenue dans Colossal Case ~~~~~~~~~~~ ");
         System.out.println();
         System.out.println("Le but de ce jeu est simple : ");

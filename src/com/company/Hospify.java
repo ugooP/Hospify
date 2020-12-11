@@ -13,7 +13,7 @@ public class Hospify {
 
     public static ArrayList<Musiques> listeMusiques = new ArrayList<>();
 
-    public static void affichageMenu() throws FileNotFoundException {
+    public static void affichageMenu() throws Exception {
 
         System.out.println();
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~ Hospify ~~~~~~~~~~~~~~~~~~~~~ ");
@@ -51,7 +51,7 @@ public class Hospify {
             Chansons.ajouterNouvelleChanson();
         }
         else if (entree.equals("6")) {
-
+            Musiques.supprimerMusique();
         }
         else if (entree.equals("7")) {
             Main.mainMenu();

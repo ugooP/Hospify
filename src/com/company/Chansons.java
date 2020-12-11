@@ -40,7 +40,7 @@ public class Chansons {
         tabChansons(Playlist.chansons);
         afficherChanson(Playlist.chansons);
     }
-    public static void rechercheChanson() throws FileNotFoundException {
+    public static void rechercheChanson() throws Exception {
         contenuChansons();
         System.out.println(" ");
         System.out.println("Souhaitez vous jouer l'une d'entre elle?");
@@ -69,7 +69,7 @@ public class Chansons {
         }
     }
 
-    public static void retourChanson() throws FileNotFoundException {
+    public static void retourChanson() throws Exception {
         Scanner scanner = new Scanner(System.in);
         System.out.println("m -> retourner au menu");
         System.out.println("l -> retourner à la liste des chansons");
@@ -87,7 +87,7 @@ public class Chansons {
         }
     }
 
-    public static void ajouterNouvelleChanson() throws FileNotFoundException {
+    public static void ajouterNouvelleChanson() throws Exception {
 
         System.out.println();
         System.out.println("Ajout d'une nouvelle chanson");

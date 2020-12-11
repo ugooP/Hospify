@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class LecteurMusique {
 
-    public static void lecturePlaylist(ArrayList<Musiques> playlist) throws FileNotFoundException {
+    public static void lecturePlaylist(ArrayList<Musiques> playlist) throws Exception {
 
         int numMusique = (int) (Math.random() * ((playlist.size()) + 1));
         jouerMusique(playlist, numMusique);

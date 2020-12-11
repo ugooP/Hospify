@@ -10,7 +10,7 @@ public class BuildingEnBrique {
         System.out.println("(O)");
     }
 
-    public static void priseEntreeUtilisateur() throws FileNotFoundException {
+    public static void priseEntreeUtilisateur() throws Exception {
 
         while (true) {
             Scanner scan = new Scanner(System.in);

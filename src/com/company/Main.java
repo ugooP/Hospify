@@ -10,13 +10,13 @@ public class Main {
     private static String entree;
 
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws Exception {
 
         mainMenu();
 
     }
 
-    public static void mainMenu() throws FileNotFoundException {
+    public static void mainMenu() throws Exception {
         System.out.println(" ");
         System.out.println("~~~~~~~~~~~~~ Bienvenue sur Laspit'app ~~~~~~~~~~~~~ ");
         System.out.println(" ");

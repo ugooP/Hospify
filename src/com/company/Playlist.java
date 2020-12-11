@@ -2,16 +2,15 @@ package com.company;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Playlist {
 
-    public static String[] chansons = new String[200];
     private static int playlistCount = 0;
+    public static String[] chansons = new String[200];
     public static ArrayList<ArrayList> listePlaylist = new ArrayList<>();
 
-    public static void creerPlaylist() throws FileNotFoundException {
+    public static void creerPlaylist() throws Exception {
         int chansonCounter = 0;
         ArrayList<Musiques> nouvellePlaylist = new ArrayList<>();
         System.out.println();
@@ -59,7 +58,7 @@ public class Playlist {
         }
     }
 
-    private static void afficherListeMusiques() {
+    static void afficherListeMusiques() {
         ArrayList<Musiques> musiques = Hospify.listeMusiques;
         for (int i = 0; i < musiques.size(); i++) {
             System.out.println(i + ". " + musiques.get(i).getTitre() + " - " + musiques.get(i).getArtiste() + " (" + musiques.get(i).getDuree() + ")");
@@ -74,7 +73,7 @@ public class Playlist {
         System.out.println();
     }
 
-    public static void jouerPlaylist() throws FileNotFoundException {
+    public static void jouerPlaylist() throws Exception {
         afficherListePlaylist();
         System.out.println();
 
@@ -116,7 +115,7 @@ public class Playlist {
         }
     }
 
-    public static void supprimerPlaylist() throws FileNotFoundException {
+    public static void supprimerPlaylist() throws Exception {
         afficherListePlaylist();
         System.out.println();
 

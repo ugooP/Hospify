@@ -21,7 +21,6 @@ public class Musiques {
     }
 
     public static void ajouterNouvelleMusique(Musiques musique) throws FileNotFoundException {
-
         try {
             File file = new File("musiques2.txt");
             FileWriter fr = new FileWriter(file, true);
@@ -30,6 +29,56 @@ public class Musiques {
         } catch (IOException e) {
             System.out.println("Un problème est survenu");
         }
+    }
+
+    public static void supprimerMusique() throws Exception {
+
+        System.out.println();
+        System.out.println("Voici la liste des chansons disponibles :");
+        System.out.println();
+        Playlist.afficherListeMusiques();
+
+        while (true) {
+            System.out.println();
+            System.out.print("Entrer le numéro de la chanson à supprimer : ");
+            Scanner scan = new Scanner(System.in);
+            String entreeUtilisateur = scan.nextLine();
+
+            if (entreeUtilisateur.equals("m")) {
+                Hospify.affichageMenu();
+            } else {
+                int indexMusique = Integer.parseInt(entreeUtilisateur);
+
+                if (indexMusique < 0 || indexMusique > Hospify.listeMusiques.size()) {
+                    System.out.println();
+                    System.out.println("Numéro invalide");
+                } else {
+                    System.out.println();
+                    String msgValidation = Hospify.listeMusiques.get(indexMusique).getTitre() + " de " + Hospify.listeMusiques.get(indexMusique). getArtiste() + " vient d'être supprimée";
+
+                    Hospify.listeMusiques.remove(indexMusique);
+
+                    String musiqueDescription = Hospify.listeMusiques.get(indexMusique).getTitre() + "/" + Hospify.listeMusiques.get(indexMusique).getArtiste() + "/" + Hospify.listeMusiques.get(indexMusique).getDuree() + "/";
+                    fileToString().replaceAll(musiqueDescription, "");
+
+                    System.out.println(msgValidation);
+                    Hospify.affichageMenu();
+                }
+
+            }
+
+        }
+    }
+
+    public static String fileToString() throws Exception {
+        String input = null;
+        Scanner sc = new Scanner(new File("musiques2.txt"));
+        StringBuffer sb = new StringBuffer();
+        while (sc.hasNextLine()) {
+            input = sc.nextLine();
+            sb.append(input);
+        }
+        return sb.toString();
     }
 
     public void setArtiste(String artiste) {

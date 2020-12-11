@@ -10,7 +10,7 @@ public class Route {
         System.out.println("(N, S, E, O)");
     }
 
-    static void priseEntreeUtilisateur() throws FileNotFoundException {
+    static void priseEntreeUtilisateur() throws Exception {
 
         while (true) {
             Scanner scan = new Scanner(System.in);

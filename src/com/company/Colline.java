@@ -10,7 +10,7 @@ public class Colline {
         System.out.println("(N)");
     }
 
-    public static void priseEntreeUtilisateur() throws FileNotFoundException {
+    public static void priseEntreeUtilisateur() throws Exception {
 
         while (true) {
             Scanner scan = new Scanner(System.in);

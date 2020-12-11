@@ -10,7 +10,7 @@ public class Vallee {
         System.out.println("(N, O)");
     }
 
-    public static void priseEntreeUtilisateur() throws FileNotFoundException {
+    public static void priseEntreeUtilisateur() throws Exception {
 
         while (true) {
             Scanner scan = new Scanner(System.in);
