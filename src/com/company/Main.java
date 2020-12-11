@@ -31,11 +31,13 @@ public class Main {
 
         entree = entreeUtilisateur();
 
+        //Lance le sous-menu de l'application de Musiques
         if(entree.equals("1")) {
             Hospify hospify = new Hospify();
             Hospify.creerTableauChansons();
             hospify.affichageMenu();
         }
+        //Lance le sous-menu du jeu
         else if (entree.equals("2")) {
             System.out.println();
             ColossalCase.afficherMenu();
@@ -43,6 +45,7 @@ public class Main {
     }
 
 
+    //Scanner classique
     static String entreeUtilisateur(){
 
         entree = scanner.nextLine();

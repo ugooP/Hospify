@@ -1,4 +1,4 @@
-package com.company;
+/*package com.company;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -92,27 +92,7 @@ public class Chansons {
         System.out.println();
         System.out.println("Ajout d'une nouvelle chanson");
 
-        System.out.println();
-        System.out.print("Titre : ");
-        Scanner titreScan = new Scanner(System.in);
-        String titre = titreScan.nextLine();
-
-
-        System.out.print("Artiste : ");
-        Scanner artisteScan = new Scanner(System.in);
-        String artiste = artisteScan.nextLine();
-
-        System.out.print("Durée : ");
-        Scanner dureeScan = new Scanner(System.in);
-        String duree = dureeScan.nextLine();
-
-        Musiques musique = new Musiques(titre, artiste, duree);
-        Musiques.ajouterNouvelleMusique(musique);
-        Hospify.listeMusiques.add(musique);
-
-
-        System.out.println("nouvelle musique ajoutée !");
-        Hospify.affichageMenu();
-
-    }
 }
+
+
+ */

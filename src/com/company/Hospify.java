@@ -11,6 +11,7 @@ public class Hospify {
     private static Scanner scanner = new Scanner(System.in);
     private static String entree;
 
+    //Place la liste de Musiques disponibles dans un ArrayList
     public static ArrayList<Musiques> listeMusiques = new ArrayList<>();
 
     public static void affichageMenu() throws Exception {
@@ -32,30 +33,30 @@ public class Hospify {
         entree = entreeUtilisateur();
 
         if (entree.equals("1")) {
-            Playlist.jouerPlaylist();
+            Playlist.jouerPlaylist();   //Jouer les playlist disponible
         }
         else if (entree.equals("2")) {
-            Playlist newPlaylist = new Playlist();
+            Playlist newPlaylist = new Playlist();  //Créer une nouvelle playlist
             newPlaylist.creerPlaylist();
         }
         else if (entree.equals("3")) {
-            Playlist.supprimerPlaylist();
+            Playlist.supprimerPlaylist(); //Supprimer une playlist existante
         }
         else if (entree.equals("4")) {
-            rechercheChanson();
+            rechercheChanson();         //Afficher et jouer une musique parmis la liste
         }
         else if (entree.equals("5")) {
-            Chansons.ajouterNouvelleChanson();
+            Musiques.ajouterNouvelleChanson();  //Ajouter une musique à la liste de musiques
         }
         else if (entree.equals("6")) {
-            Musiques.supprimerMusique();
+            Musiques.supprimerMusique();    //Supprimer une musique de la liste
         }
-        else if (entree.equals("7")) {
+        else if (entree.equals("7")) {      //Retour au menu
             Main.mainMenu();
         }
     }
 
-    static String entreeUtilisateur(){
+    static String entreeUtilisateur(){  //Scanner classique
 
         entree = scanner.nextLine();
 
@@ -72,7 +73,7 @@ public class Hospify {
         return entree;
     }
 
-    public static void rechercheChanson() throws FileNotFoundException {
+    public static void rechercheChanson() throws Exception {    //Recherche une musique particulière
         System.out.println();
         System.out.println("Voici la liste des musiques disponible sur notre plateforme:");
         System.out.println();
@@ -98,7 +99,7 @@ public class Hospify {
         }
     }
 
-    private static int checkEntree(){
+    private static int checkEntree(){ //Scanner classique
 
         String scan = scanner.nextLine();
         int choix = 0;
@@ -115,7 +116,7 @@ public class Hospify {
         return choix;
     }
 
-    public static void retourChanson() throws FileNotFoundException {
+    public static void retourChanson() throws Exception { //Retour Liste ou menu quand une musique est jouée
         Scanner scanner = new Scanner(System.in);
         System.out.println("m -> retourner au menu");
         System.out.println("l -> retourner à la liste des chansons");
@@ -133,7 +134,7 @@ public class Hospify {
         }
     }
 
-    public static void creerTableauChansons() {
+    public static void creerTableauChansons() { //Reader du fichier musique
         Scanner scanner = null;
         try {
             scanner = new Scanner(new BufferedReader(new FileReader("musiques2.txt")));

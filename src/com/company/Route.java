@@ -4,13 +4,13 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Route {
-    public static void afficherDescription() {
+    public static void afficherDescription() { //Consigne sur les choix de l'utilisateur
         System.out.println();
         System.out.println("Vous êtes au bout de la route devant un petit immeuble en brique.\nUn petit ruisseau coule à côté du building en bas d’une rigole");
         System.out.println("(N, S, E, O)");
     }
 
-    static void priseEntreeUtilisateur() throws Exception {
+    static void priseEntreeUtilisateur() throws Exception {  //Choix de parcours de l'utilisateur
 
         while (true) {
             Scanner scan = new Scanner(System.in);

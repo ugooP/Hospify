@@ -4,13 +4,13 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Vallee {
-    public static void afficherDescription() {
+    public static void afficherDescription() { //Consigne sur les choix de l'utilisateur
         System.out.println();
         System.out.println("Vous êtes dans une vallée a coté d’un ruisseau. Un corps flotte là dans l’eau.");
         System.out.println("(N, O)");
     }
 
-    public static void priseEntreeUtilisateur() throws Exception {
+    public static void priseEntreeUtilisateur() throws Exception {  //Choix de parcours de l'utilisateur
 
         while (true) {
             Scanner scan = new Scanner(System.in);

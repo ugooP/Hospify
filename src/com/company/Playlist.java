@@ -6,27 +6,27 @@ import java.util.Scanner;
 
 public class Playlist {
 
-    private static int playlistCount = 0;
-    public static String[] chansons = new String[200];
+    private static int playlistCount = 0;   //Nombre de playlist disponibles
+    public static String[] nosPlaylist = new String[200];  //
     public static ArrayList<ArrayList> listePlaylist = new ArrayList<>();
 
-    public static void creerPlaylist() throws Exception {
+    public static void creerPlaylist() throws Exception { //Créer une playlist
         int chansonCounter = 0;
         ArrayList<Musiques> nouvellePlaylist = new ArrayList<>();
         System.out.println();
         System.out.println("Voici la liste des chansons disponibles:");
         System.out.println();
-        afficherListeMusiques();
+        afficherListeMusiques();    //Afficher les musiques dispo
         System.out.println();
         System.out.println("Taper V pour valider la playlist");
         System.out.println("Taper M pour revenir au menu");
 
-        while (true) {
+        while (true) {      //Demande à l'utilisateur de choisir les musiques qu'il veut dans sa playlist
             System.out.print("Entrer le numéro de la chanson à ajouter : ");
             Scanner scan = new Scanner(System.in);
             String entreeUtilisateur = scan.nextLine();
 
-            if (entreeUtilisateur.toLowerCase().equals("v")) {
+            if (entreeUtilisateur.toLowerCase().equals("v")) { //Validation et stock de la playlist créée
                     try {
                         playlistCount++;
                         FileWriter playlistWriter = new FileWriter("playlist" + playlistCount + ".txt");
@@ -58,14 +58,14 @@ public class Playlist {
         }
     }
 
-    static void afficherListeMusiques() {
+    static void afficherListeMusiques() {   //Afficher la liste complète des musiques disponibles
         ArrayList<Musiques> musiques = Hospify.listeMusiques;
         for (int i = 0; i < musiques.size(); i++) {
             System.out.println(i + ". " + musiques.get(i).getTitre() + " - " + musiques.get(i).getArtiste() + " (" + musiques.get(i).getDuree() + ")");
         }
     }
 
-    private static void afficherPlaylist(ArrayList<Musiques> nouvellePlaylist) {
+    private static void afficherPlaylist(ArrayList<Musiques> nouvellePlaylist) { //Affiche la playlist actuelle
         System.out.println();
         for (int i = 0; i < nouvellePlaylist.size(); i++) {
             System.out.println(nouvellePlaylist.get(i).getTitre() + " - " + nouvellePlaylist.get(i).getArtiste() + " (" + nouvellePlaylist.get(i).getDuree() + ")");
@@ -73,7 +73,7 @@ public class Playlist {
         System.out.println();
     }
 
-    public static void jouerPlaylist() throws Exception {
+    public static void jouerPlaylist() throws Exception { //Jouer la playlist
         afficherListePlaylist();
         System.out.println();
 
@@ -97,13 +97,13 @@ public class Playlist {
         }
     }
 
-    private static void afficherListePlaylist() throws FileNotFoundException {
+    private static void afficherListePlaylist() throws FileNotFoundException { //Afficher la playlist en train d'être créer
         int index = 0;
 
         System.out.println();
         System.out.println("Liste des playlist : ");
 
-        for (int i = 1; i < chansons.length; i++) {
+        for (int i = 1; i < nosPlaylist.length; i++) {
             Scanner scan = null;
 
             try {
@@ -115,11 +115,11 @@ public class Playlist {
         }
     }
 
-    public static void supprimerPlaylist() throws Exception {
+    public static void supprimerPlaylist() throws Exception { //Supprimer une playlist
         afficherListePlaylist();
         System.out.println();
 
-        while (true) {
+        while (true) {  //Choix de la playlist à la supprimer
             System.out.print("Numéro de la playlist à supprimer : ");
             Scanner scanner = new Scanner(System.in);
             String choix = scanner.nextLine();

@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class ColossalCase {
 
-    public static void afficherMenu() throws Exception {
+    public static void afficherMenu() throws Exception { //Sous Menu du jeu
         System.out.println("~~~~~~~~~~~~ Bienvenue dans Colossal Case ~~~~~~~~~~~ ");
         System.out.println();
         System.out.println("Le but de ce jeu est simple : ");
@@ -18,24 +18,21 @@ public class ColossalCase {
         System.out.println();
         System.out.println("À tout moment, taper Q pour quitter le jeu");
 
-        while (true) {
+        while (true) {  //Choix de l'utilisateur
             System.out.print("Taper C pour commencer : ");
             Scanner scan = new Scanner(System.in);
             String entreeUtilisateur = scan.nextLine();
 
-            if (entreeUtilisateur.toLowerCase().equals("c")) {
+            if (entreeUtilisateur.toLowerCase().equals("c")) { //lance le jeu
                 Route.afficherDescription();
                 Route.priseEntreeUtilisateur();
             }
-            else if (entreeUtilisateur.toLowerCase().equals("q")) {
+            else if (entreeUtilisateur.toLowerCase().equals("q")) { //Retour au menu
                 Main.mainMenu();
             }
         }
 
 
-    }
-
-    private static void boucleDeJeu() {
     }
 }
 

@@ -4,13 +4,13 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Foret {
-    public static void afficherDescription() {
+    public static void afficherDescription() { //Consigne sur les choix de l'utilisateur
         System.out.println();
         System.out.println("Vous êtes dans la foret noire. Vous entendez des hurlements stridents.");
         System.out.println("(S)");
     }
 
-    public static void priseEntreeUtilisateur() throws Exception {
+    public static void priseEntreeUtilisateur() throws Exception {  //Choix de parcours de l'utilisateur
 
         while (true) {
             Scanner scan = new Scanner(System.in);

@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class LecteurMusique {
 
-    public static void lecturePlaylist(ArrayList<Musiques> playlist) throws Exception {
+    public static void lecturePlaylist(ArrayList<Musiques> playlist) throws Exception { //Fonction pour pouvoir faire précédent / suivant
 
         int numMusique = (int) (Math.random() * ((playlist.size()) + 1));
         jouerMusique(playlist, numMusique);
@@ -52,7 +52,7 @@ public class LecteurMusique {
 
     }
 
-    public static void jouerMusique(ArrayList<Musiques> playlist, int numMusique) {
+    public static void jouerMusique(ArrayList<Musiques> playlist, int numMusique) { //Musique jouée actuellement
 
         if (playlist.get(numMusique) != null) {
             System.out.println();
