@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class LecteurMusique {
 
-    public static void lecteurMusique(String[] playlist) throws FileNotFoundException {
+    public static void lecturePlaylist(ArrayList<Musiques> playlist) throws FileNotFoundException {
 
         int numMusique = 0;
         jouerMusique(playlist, numMusique);
@@ -21,12 +21,12 @@ public class LecteurMusique {
             String entreeUtilisateur = scan.nextLine();
 
             // Skip avant
-            if (entreeUtilisateur.equals("s") && playlist[numMusique+1] != null) {
+            if (entreeUtilisateur.equals("s") && playlist.size() > numMusique + 1) {
                 numMusique++;
                 jouerMusique(playlist, numMusique);
             }
             // Cas où l'utilisateur écoute la dernière chanson de la playlist
-            else if (entreeUtilisateur.equals("s") && playlist[numMusique+1] == null) {
+            else if (entreeUtilisateur.equals("s") && playlist.size() == numMusique + 1) {
                 System.out.println();
                 System.out.println("Tu écoutes la dernière chanson de la playlist");
                 System.out.println();
@@ -52,12 +52,12 @@ public class LecteurMusique {
 
     }
 
-    public static void jouerMusique(String[] playlist, int numMusique) {
+    public static void jouerMusique(ArrayList<Musiques> playlist, int numMusique) {
 
-        if (playlist[numMusique] != null) {
+        if (playlist.get(numMusique) != null) {
             System.out.println();
             System.out.println("Actuellement en train de jouer :");
-            System.out.println(playlist[numMusique]);
+            System.out.println(playlist.get(numMusique).getTitre() + " - " + playlist.get(numMusique).getArtiste() + " (" + playlist.get(numMusique).getDuree() + ")");
             System.out.println();
         }else {
             System.out.println("La musique demandée n'existe pas");

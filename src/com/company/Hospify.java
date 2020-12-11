@@ -13,10 +13,10 @@ public class Hospify {
     private static Scanner scanner = new Scanner(System.in);
     private static String entree;
 
+    public static ArrayList<Musiques> listeMusiques = new ArrayList<>();
 
     public static void affichageMenu() throws FileNotFoundException {
 
-        System.out.println(" ");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~ Hospify ~~~~~~~~~~~~~~~~~~~~~ ");
         System.out.println(" ");
         System.out.println("1- Jouer une playlist");
@@ -68,4 +68,33 @@ public class Hospify {
         return entree;
     }
 
+    public static void creerTableauChansons() {
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(new BufferedReader(new FileReader("musiques2.txt")));
+            scanner.useDelimiter("/");
+            while (scanner.hasNext()){
+                String titre = scanner.next();
+
+                scanner.skip(scanner.delimiter());
+
+                String artiste = scanner.next();
+
+                scanner.skip(scanner.delimiter());
+
+                String duree = scanner.next();
+                scanner.skip(scanner.delimiter());
+
+                Musiques nouvelleMusique = new Musiques(titre, artiste, duree);
+                listeMusiques.add(nouvelleMusique);
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            if (scanner != null) {
+                scanner.close();
+            }
+        }
+    }
 }

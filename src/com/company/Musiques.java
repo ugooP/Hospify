@@ -3,6 +3,7 @@ package com.company;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Musiques {
@@ -45,8 +46,7 @@ public class Musiques {
         return duree;
     }
 
-
-    public static void lectureFichier(){
+        public static void lecturePlaylist(ArrayList<Musiques> playlist){
         Scanner scanner = null;
         try {
             scanner = new Scanner(new BufferedReader(new FileReader("musiques2.txt")));
@@ -64,12 +64,12 @@ public class Musiques {
                 scanner.skip(scanner.delimiter());
 
                 Musiques musiques = new Musiques(titre,artiste,duree);
-                System.out.println(musiques.getTitre() + " - " + musiques.getArtiste() + " - " +musiques.getDuree());
+                System.out.println(musiques.getTitre() + " - " + musiques.getArtiste() + " - " + musiques.getDuree());
             }
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             if (scanner != null) {
                 scanner.close();
             }

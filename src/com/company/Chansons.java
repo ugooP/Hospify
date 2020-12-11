@@ -60,7 +60,7 @@ public class Chansons {
                 scan = scanner.nextLine();
             }
                 int choix = Integer.parseInt(scan);
-                LecteurMusique.jouerMusique(Playlist.chansons, choix);
+                //LecteurMusique.jouerMusique(Playlist.chansons, choix);
                 retourChanson();
         }
         else{

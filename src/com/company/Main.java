@@ -33,6 +33,7 @@ public class Main {
 
         if(entree.equals("1")) {
             Hospify hospify = new Hospify();
+            Hospify.creerTableauChansons();
             hospify.affichageMenu();
         }
         else if (entree.equals("2")) {

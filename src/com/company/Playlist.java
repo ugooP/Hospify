@@ -9,16 +9,15 @@ public class Playlist {
 
     public static String[] chansons = new String[200];
     private static int playlistCount = 0;
-    public static ArrayList<String[]> playlist = new ArrayList<>();
+    public static ArrayList<ArrayList> listePlaylist = new ArrayList<>();
 
     public static void creerPlaylist() throws FileNotFoundException {
         int chansonCounter = 0;
-        String[] nouvellePlaylist = new String[chansons.length];
+        ArrayList<Musiques> nouvellePlaylist = new ArrayList<>();
         System.out.println();
         System.out.println("Voici la liste des chansons disponibles:");
         System.out.println();
-        Chansons.tabChansons(chansons);
-        Chansons.afficherChanson(chansons);
+        afficherListeMusiques();
         System.out.println();
         System.out.println("Taper V pour valider la playlist");
         System.out.println("Taper M pour revenir au menu");
@@ -32,11 +31,12 @@ public class Playlist {
                     try {
                         playlistCount++;
                         FileWriter playlistWriter = new FileWriter("playlist" + playlistCount + ".txt");
-                        playlistWriter.write(Arrays.toString(nouvellePlaylist));
+                        playlistWriter.write(String.valueOf(nouvellePlaylist));
                         playlistWriter.close();
-                        playlist.add(nouvellePlaylist);
+                        listePlaylist.add(nouvellePlaylist);
                         System.out.println();
                         System.out.println("Playlist créée !");
+                        System.out.println();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -48,10 +48,10 @@ public class Playlist {
             else {
                 int musiqueIndex = Integer.parseInt(entreeUtilisateur);
 
-                if (musiqueIndex < 0 || musiqueIndex >= chansons.length) {
+                if (musiqueIndex < 0 || musiqueIndex >= Hospify.listeMusiques.size()) {
                     System.out.println("Numéro invalide");
                 } else {
-                    nouvellePlaylist[chansonCounter] = chansons[musiqueIndex];
+                    nouvellePlaylist.add(Hospify.listeMusiques.get(musiqueIndex));
                     afficherPlaylist(nouvellePlaylist);
                     chansonCounter++;
                 }
@@ -59,11 +59,17 @@ public class Playlist {
         }
     }
 
-    private static void afficherPlaylist(String[] nouvellePlaylist) {
+    private static void afficherListeMusiques() {
+        ArrayList<Musiques> musiques = Hospify.listeMusiques;
+        for (int i = 0; i < musiques.size(); i++) {
+            System.out.println(i + ". " + musiques.get(i).getTitre() + " - " + musiques.get(i).getArtiste() + " (" + musiques.get(i).getDuree() + ")");
+        }
+    }
+
+    private static void afficherPlaylist(ArrayList<Musiques> nouvellePlaylist) {
         System.out.println();
-        for (int i = 0; i < nouvellePlaylist.length; i++) {
-            if (nouvellePlaylist[i] != null)
-                System.out.println(nouvellePlaylist[i]);
+        for (int i = 0; i < nouvellePlaylist.size(); i++) {
+            System.out.println(nouvellePlaylist.get(i).getTitre() + " - " + nouvellePlaylist.get(i).getArtiste() + " (" + nouvellePlaylist.get(i).getDuree() + ")");
         }
         System.out.println();
     }
@@ -81,11 +87,11 @@ public class Playlist {
             } else {
                 int playlistIndex = Integer.parseInt(choix);
 
-                if (playlistIndex > playlist.size() || playlistIndex <= 0) {
+                if (playlistIndex > listePlaylist.size() || playlistIndex <= 0) {
                     System.out.println("Commande invalide");
                 } else {
-                    String[] playlistChoisie = playlist.get(playlistIndex - 1);
-                    LecteurMusique.lecteurMusique(playlistChoisie);
+                    ArrayList playlistChoisie = listePlaylist.get(playlistIndex - 1);
+                    LecteurMusique.lecturePlaylist(playlistChoisie);
                 }
             }
         }
@@ -124,12 +130,12 @@ public class Playlist {
             } else {
                 int indexPlaylist = Integer.parseInt(choix);
 
-                if (indexPlaylist - 1 < 0 || indexPlaylist > playlist.size()) {
+                if (indexPlaylist - 1 < 0 || indexPlaylist > listePlaylist.size()) {
                     System.out.println();
                     System.out.println("Numéro invalide");
                     System.out.println();
                 } else {
-                    playlist.remove(indexPlaylist);
+                    listePlaylist.remove(indexPlaylist);
                     System.out.println("La playlist " + indexPlaylist + " a été supprimée");
                     Hospify.affichageMenu();
                     break;
