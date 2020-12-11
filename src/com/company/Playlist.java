@@ -77,21 +77,27 @@ public class Playlist {
     public static void jouerPlaylist() throws FileNotFoundException {
         afficherListePlaylist();
         System.out.println();
-        while (true) {
-            System.out.print("Selectionnez la playlist à jouer : ");
-            Scanner scanner = new Scanner(System.in);
-            String choix = scanner.nextLine();
 
-            if (choix.toLowerCase().equals("m")) {
-                Hospify.affichageMenu();
-            } else {
-                int playlistIndex = Integer.parseInt(choix);
+        if (listePlaylist.size() == 0) {
+            System.out.println("Aucune playlist trouvée...");
+            Hospify.affichageMenu();
+        } else {
+            while (true) {
+                System.out.print("Selectionnez la playlist à jouer : ");
+                Scanner scanner = new Scanner(System.in);
+                String choix = scanner.nextLine();
 
-                if (playlistIndex > listePlaylist.size() || playlistIndex <= 0) {
-                    System.out.println("Commande invalide");
+                if (choix.toLowerCase().equals("m")) {
+                    Hospify.affichageMenu();
                 } else {
-                    ArrayList playlistChoisie = listePlaylist.get(playlistIndex - 1);
-                    LecteurMusique.lecturePlaylist(playlistChoisie);
+                    int playlistIndex = Integer.parseInt(choix);
+
+                    if (playlistIndex > listePlaylist.size() || playlistIndex <= 0) {
+                        System.out.println("Commande invalide");
+                    } else {
+                        ArrayList playlistChoisie = listePlaylist.get(playlistIndex - 1);
+                        LecteurMusique.lecturePlaylist(playlistChoisie);
+                    }
                 }
             }
         }
