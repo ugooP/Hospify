@@ -1,11 +1,9 @@
 package com.company;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class Hospify {
@@ -17,6 +15,7 @@ public class Hospify {
 
     public static void affichageMenu() throws FileNotFoundException {
 
+        System.out.println();
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~ Hospify ~~~~~~~~~~~~~~~~~~~~~ ");
         System.out.println(" ");
         System.out.println("1- Jouer une playlist");
